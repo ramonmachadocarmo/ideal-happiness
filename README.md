@@ -7,6 +7,8 @@ Desenvolvido utilizando:
 - MongoDB
 - React
 
+Configurar arquivo .env.sample com variáveis de ambiente Docker
+
 Para build em desenvolvimento
 ```bash
 docker-compose up --build
