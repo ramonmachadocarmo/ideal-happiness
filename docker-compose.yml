@@ -1,0 +1,45 @@
+version: "3.1"
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - /api/node_modules
+      - ./api:/api
+      - /etc/localtime:/etc/localtime:ro
+    env_file: .env
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOST=$MONGO_HOST
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DATABASE=$MONGO_DATABASE
+    ports:
+      - 3151:3050
+    depends_on:
+      - mongodb
+  # client:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - /client/node_modules
+  #     - ./client:/client
+  #     - /etc/localtime:/etc/localtime:ro
+  #   ports:
+  #     - 8181:8080
+  #   depends_on:
+  #     - api
+  mongodb:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+      - MONGO_INITDB_DATABASE=$MONGO_DATABASE
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /mongodb:/data/db
+    ports:
+      - 27017:27017

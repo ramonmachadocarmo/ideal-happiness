@@ -1,0 +1,33 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Regra de negócio da Plataforma de gestão de filas",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "knex migrate:latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Prmordio/PGF.git"
+  },
+  "keywords": [
+    "nodejs",
+    "vuejs"
+  ],
+  "author": "PrmordIO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prmordio/PGF/issues"
+  },
+  "homepage": "https://github.com/Prmordio/PGF#readme",
+  "dependencies": {
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.12",
+    "mongoose": "6.2.4"
+  }
+}
