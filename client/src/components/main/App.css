@@ -1,0 +1,45 @@
+:root{
+  --bg-dark: #9A9A9A;
+
+  --logo-height: 100px;
+  --aside-width: 350px;
+  --header-height: 100px;
+  --foter-height: 40px;
+
+  --shadow:
+    0 5px 15px 0 rgba(200,0,0,.4),
+    0 5px 30px 0 rgba(100,0,0,.2);
+}
+*{
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.app{
+  margin: 0px;
+  display: grid;
+  grid-template-columns: var(--aside-width) 1fr;
+  grid-template-rows: 
+  var(--header-height)
+  1fr
+  var(--foter-height);
+  grid-template-areas: 
+  "logo header"
+  "content contet"
+  "footer footer";
+  height: 100vh;
+  background-color: #DFDFDF;
+}
+
+aside.logo{
+  grid-area: logo;
+}
+header.header{
+  grid-area: header;
+}
+main.content{
+  grid-area: content;
+}
+footer.footer{
+  grid-area: footer;
+}
